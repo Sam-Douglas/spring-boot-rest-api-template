@@ -32,6 +32,8 @@ public class Parent {
     @EqualsAndHashCode.Include
     private UUID id;
 
+    private String name;
+
     @Builder.Default
     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Child> children = new ArrayList<>();
