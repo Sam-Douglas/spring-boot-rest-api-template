@@ -1,5 +1,6 @@
 package com.samjsddevelopment.restapitemplate.dto;
 
-public class ParentResponse {
-    
+import java.util.UUID;
+
+public record ParentResponse(UUID id, String name) {
 }
