@@ -30,6 +30,8 @@ public class Child {
     @EqualsAndHashCode.Include
     private UUID id;
 
+    private String name;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Parent parent;
 
