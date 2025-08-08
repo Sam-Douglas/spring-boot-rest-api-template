@@ -10,7 +10,6 @@ import com.samjsddevelopment.restapitemplate.dto.ParentRequest;
 import com.samjsddevelopment.restapitemplate.dto.ParentResponse;
 import com.samjsddevelopment.restapitemplate.mapper.ChildMapper;
 import com.samjsddevelopment.restapitemplate.mapper.ParentMapper;
-import com.samjsddevelopment.restapitemplate.model.Child;
 import com.samjsddevelopment.restapitemplate.repository.ParentRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -35,5 +34,10 @@ public class ParentService {
         parent.addChild(child);
         var saved = repository.saveAndFlush(parent);
         return parentMapper.parentToParentResponse(saved);
+    }
+
+    public ParentResponse getParent(UUID parentId) {
+        var parent = repository.findById(parentId).orElseThrow(RuntimeException::new);
+        return parentMapper.parentToParentResponse(parent);
     }
 }

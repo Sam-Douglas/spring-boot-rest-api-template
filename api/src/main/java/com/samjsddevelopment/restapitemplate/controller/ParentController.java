@@ -15,6 +15,9 @@ import java.util.UUID;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequiredArgsConstructor
@@ -31,6 +34,11 @@ public class ParentController {
     @PostMapping("/{parentId}/children")
     public ParentResponse addChild(@PathVariable UUID parentId, @RequestBody ChildRequest request) {
         return service.addChild(parentId, request);
+    }
+
+    @GetMapping("/{parentId}")
+    public ParentResponse getParent(@RequestParam UUID parentId) {
+        return service.getParent(parentId);
     }
 
 }
