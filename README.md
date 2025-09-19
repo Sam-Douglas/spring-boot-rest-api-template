@@ -1,3 +1,6 @@
+# This project is a work in progress.
+
+
 # Spring Boot REST API Template
 
 ### Spring Boot Starter Data JPA
